@@ -137,3 +137,5 @@ class TestMember(TestCase):
         self.assertEqual(len(self.member.get_relationship("daughter")), 2)
         self.assertEqual(len(self.member.spouse.get_relationship("brother_in_law")), 2)
         self.assertEqual(len(self.member.spouse.get_relationship("sister_in_law")), 2)
+
+        
