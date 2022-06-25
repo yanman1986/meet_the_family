@@ -45,6 +45,8 @@ class Geektrust:
         )
 
     def construct_get_relationship_method_call(self, *args):
+        if len(args) != 2:
+            return None
         switch_relationship = {
             'Paternal-Aunt': 'paternal_aunt',
             'Paternal-Uncle': 'paternal_uncle',
@@ -84,6 +86,23 @@ class Geektrust:
                 continue
             results.append(result)
         return results
+
+    def execute(self, instructions):
+        results = []
+        for instruction in instructions:
+            result = eval(instruction)
+            if not result:
+                continue
+            results.append(result)
+        return results
+
+    def log(self, results):
+        for result in results:
+            print(result)
+
+    def setup(self, filename):
+        commands = self.translate(filename)
+        self.execute(commands)
 
 if __name__ == "__main__":
     print('Hello Wolrd')
